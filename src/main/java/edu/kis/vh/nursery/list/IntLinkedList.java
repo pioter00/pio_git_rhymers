@@ -36,8 +36,14 @@ public class IntLinkedList {
 		last = last.prev;
 		return ret;
 	}
+}
+class Node {
 
-	public Node getLast() {
-		return last;
+	public final int value;
+	public Node prev, next;
+
+	public Node(int i) {
+		value = i;
 	}
+
 }
