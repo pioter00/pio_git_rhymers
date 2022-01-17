@@ -1,65 +1,37 @@
 package edu.kis.vh.nursery;
 
 public class DefaultCountingOutRhymer {
+	private final IntArrayStack intArrayStack;
 
-	private static final int ERROR_VALUE = -1;
+	public DefaultCountingOutRhymer() {
+		this.intArrayStack = new IntArrayStack();
+	}
 
-	private static final int NUMBERS_SIZE = 12;
-
-	private final int[] numbers = new int[NUMBERS_SIZE];
-
-	private int total = -1;
-
-	/**
-	 * Get current size of stack
-	 * @return size
-	 */
 	public int getTotal() {
-		return total;
+		return intArrayStack.getTotal();
 	}
 
-	/**
-	 * Add value to stack
-	 * @param in value
-	 */
 	public void countIn(int in) {
-		if (!isFull())
-			numbers[++total] = in;
+		intArrayStack.countIn(in);
 	}
 
-	/**
-	 * Check if stack is empty
-	 * @return true if stack is empty otherwise false
-	 */
 	public boolean callCheck() {
-		return total == -1;
+		return intArrayStack.callCheck();
 	}
 
-	/**
-	 * Check if stack is full
-	 * @return true if stack is full otherwise false
-	 */
 	public boolean isFull() {
-		return total == NUMBERS_SIZE - 1;
+		return intArrayStack.isFull();
 	}
 
-	/**
-	 * Get value from the stack
-	 * @return value
-	 */
 	public int peekaboo() {
-		if (callCheck())
-			return ERROR_VALUE;
-		return numbers[total];
+		return intArrayStack.peekaboo();
 	}
 
-	/**
-	 * Remove value from the stack
-	 * @return value
-	 */
 	public int countOut() {
-		if (callCheck())
-			return ERROR_VALUE;
-		return numbers[total--];
+		return intArrayStack.countOut();
+	}
+
+	public DefaultCountingOutRhymer(IntArrayStack intArrayStack){
+		this.intArrayStack = intArrayStack;
 	}
 }
