@@ -1,5 +1,7 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.structures.IntArrayStack;
+
 public class HanoiRhymer extends DefaultCountingOutRhymer {
 
 	private int totalRejected = 0;
@@ -15,6 +17,10 @@ public class HanoiRhymer extends DefaultCountingOutRhymer {
 		else super.countIn(in);
 	}
 
+	public HanoiRhymer(IntArrayStack intArrayStack) {
+		super(intArrayStack);
+	}
 
-//	przełączanie między otwartymi kartami z plikami
+	public HanoiRhymer() {
+	}
 }

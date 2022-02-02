@@ -1,8 +1,6 @@
-package edu.kis.vh.nursery;
+package edu.kis.vh.nursery.structures;
 
-public class IntArrayStack {
-
-	private static final int ERROR_VALUE = -1;
+public class IntArrayStack implements StructuresInterface {
 
 	private static final int NUMBERS_CAPACITY = 12;
 
@@ -10,13 +8,6 @@ public class IntArrayStack {
 
 	private int total = -1;
 
-	/**
-	 * Get current size of stack
-	 * @return size
-	 */
-	public int getTotal() {
-		return total;
-	}
 
 	/**
 	 * Add value to stack
@@ -39,6 +30,7 @@ public class IntArrayStack {
 	 * Check if stack is full
 	 * @return true if stack is full otherwise false
 	 */
+	@Override
 	public boolean isFull() {
 		return total == NUMBERS_CAPACITY - 1;
 	}
@@ -61,5 +53,24 @@ public class IntArrayStack {
 		if (callCheck())
 			return ERROR_VALUE;
 		return numbers[total--];
+	}
+
+	@Override
+	public void push(int i) {
+		countIn(i);
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return callCheck();
+	}
+
+	@Override
+	public int top() {
+		return peekaboo();
+	}
+
+	public int pop() {
+		return countOut();
 	}
 }
